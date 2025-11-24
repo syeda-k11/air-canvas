@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Drawings - Air Canvas</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My Drawings</h1>
+            <nav>
+                <a href="{{ url_for('canvas_page') }}">Back to Canvas</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </header>
+
+        <div class="drawings-grid">
+            {% if drawings %}
+            {% for drawing in drawings %}
+            <div class="drawing-item">
+                <img src="data:image/png;base64,{{ drawing.image_data | b64encode }}" alt="Drawing {{ drawing.id }}">
+                <a href="{{ url_for('download_drawing', drawing_id=drawing.id) }}" class="download-btn">Download</a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No drawings saved yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

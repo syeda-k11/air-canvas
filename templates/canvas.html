@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Canvas</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome, {{ username }}!</h1>
+            <nav>
+                <a href="{{ url_for('get_drawings') }}">My Drawings</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </header>
+
+        <div class="instructions">
+            <h2>Gesture Controls:</h2>
+            <ul>
+                <li><strong>Draw:</strong> Extend index finger (others folded)</li>
+                <li><strong>Erase:</strong> Pinch thumb and index finger</li>
+                <li><strong>Change Color:</strong> Thumb and pinky extended (others folded)</li>
+                <li><strong>Clear Canvas:</strong> Open palm (all fingers extended)</li>
+            </ul>
+        </div>
+
+        <div class="video-container">
+            <img src="/video_feed" alt="Video Feed" id="video-feed">
+        </div>
+        <div class="camera-controls">
+            <button id="save-drawing">Save Drawing</button>
+        </div>
+
+        <div class="controls">
+            <button id="clear-btn">Clear Canvas</button>
+            <div class="color-picker">
+                <span>Brush Color:</span>
+                <div class="color-option" style="background-color: rgb(255, 0, 0);" data-color="255,0,0"></div>
+                <div class="color-option" style="background-color: rgb(0, 255, 0);" data-color="0,255,0"></div>
+                <div class="color-option" style="background-color: rgb(0, 0, 255);" data-color="0,0,255"></div>
+                <div class="color-option" style="background-color: rgb(255, 255, 0);" data-color="255,255,0"></div>
+                <div class="color-option" style="background-color: rgb(255, 0, 255);" data-color="255,0,255"></div>
+                <div class="color-option" style="background-color: rgb(0, 255, 255);" data-color="0,255,255"></div>
+            </div>
+            <div class="brush-size">
+                <span>Brush Size:</span>
+                <input type="range" id="brush-slider" min="5" max="30" value="10">
+                <span id="brush-value">10</span>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>

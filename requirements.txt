@@ -1,0 +1,6 @@
+opencv-python==4.9.0.80
+mediapipe==0.10.21
+numpy==1.26.0
+flask==3.0.2
+flask-sqlalchemy==3.1.1
+werkzeug==3.0.1
